@@ -29,7 +29,9 @@ public class MovieAnalyzer {
         private int Noofvotes;
         private String Gross;
 
-        public Movie(String Series_Title,int Released_Year,String Certificate,String Runtime,String Genre,float IMDB_Rating,String Overview,String Meta_score,String Director,String Star1,String Star2,String Star3,String Star4,int Noofvotes,String Gross){
+        public Movie(String Series_Title, int Released_Year, String Certificate, String Runtime, String Genre,
+                     float IMDB_Rating, String Overview, String Meta_score,
+                     String Director, String Star1, String Star2, String Star3, String Star4, int Noofvotes, String Gross){
             this.Series_Title=Series_Title;
             this.Released_Year=Released_Year;
             this.Certificate=Certificate;
@@ -125,7 +127,7 @@ public class MovieAnalyzer {
                 .map(l -> Arrays.stream(l).collect(Collectors.toList()))
                 .map(l -> l.stream().map(a->{if(a.contains("\"")){return a.substring(1,a.length()-1);}else {return a;}}).collect(Collectors.toList()))
                 .peek(l -> l.add(""))
-                .map(a -> new Movie(a.get(1),Integer.parseInt(a.get(2)), a.get(3), a.get(4), a.get(5),Float.parseFloat(a.get(6)), a.get(7),a.get(8), a.get(9), a.get(10), a.get(11), a.get(12), a.get(13),Integer.parseInt(a.get(14)), a.get(15)))
+                .map(a -> new Movie(a.get(1), Integer.parseInt(a.get(2)), a.get(3), a.get(4), a.get(5), Float.parseFloat(a.get(6)), a.get(7), a.get(8), a.get(9), a.get(10), a.get(11), a.get(12), a.get(13), Integer.parseInt(a.get(14)), a.get(15)))
                 .collect(Collectors.toList());
 
 
@@ -535,20 +537,6 @@ public class MovieAnalyzer {
         return counter6;
     }
 
-//    public static void main(String[] args) throws IOException {
-//        MovieAnalyzer analyzer = new MovieAnalyzer("resources/imdb_top_500.csv");
-//
-//        List<String> counter = new ArrayList<>();
-//        Map<List<String>,Integer> cd =new HashMap<>(analyzer.getCoStarCount());
-//
-//
-//        List<List<String>> l =new ArrayList<>();
-//        for(Map.Entry<List<String>,Integer> entry:cd.entrySet()){
-//            System.out.println(entry.getKey().get(0)+","+entry.getKey().get(1)+"="+entry.getValue());
-//        }
-//
-//
-//    }
 
 
 
